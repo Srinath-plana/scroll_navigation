@@ -23,7 +23,7 @@ class App extends StatelessWidget {
 //EASY EXAMPLES//
 //-------------//
 class EasyHorizontalNavigation extends StatelessWidget {
-  const EasyHorizontalNavigation({Key key}) : super(key: key);
+  const EasyHorizontalNavigation({required Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class EasyHorizontalNavigation extends StatelessWidget {
 }
 
 class EasyVerticalNavigation extends StatelessWidget {
-  const EasyVerticalNavigation({Key key}) : super(key: key);
+  const EasyVerticalNavigation({required Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -138,14 +138,14 @@ class _AdvancedNavigationState extends State<AdvancedNavigation> {
             MaterialPageRoute(builder: (context) => TitleScrollScreen()),
           ),
         ),
-        null,
+SizedBox(),
         FloatingActionButton(
-          onPressed: () => navigationKey.currentState.goToPage(4),
+          onPressed: () => navigationKey.currentState!.goToPage(4),
           child: Icon(Icons.arrow_right),
         ),
-        null,
+        SizedBox(),
         FloatingActionButton(
-          onPressed: () => navigationKey.currentState.goToPage(2),
+          onPressed: () => navigationKey.currentState!.goToPage(2),
           child: Icon(Icons.arrow_left),
         ),
       ],
@@ -154,7 +154,7 @@ class _AdvancedNavigationState extends State<AdvancedNavigation> {
 }
 
 class TitleScrollScreen extends StatefulWidget {
-  TitleScrollScreen({Key key}) : super(key: key);
+  TitleScrollScreen({ Key? key}) : super(key: key);
 
   @override
   _TitleScrollScreenState createState() => _TitleScrollScreenState();
@@ -213,8 +213,8 @@ class _TitleScrollScreenState extends State<TitleScrollScreen> {
 
 class AppBarTitle extends StatelessWidget {
   const AppBarTitle({
-    Key key,
-    @required this.title,
+    Key? key,
+    required this.title,
     this.showBack = false,
   }) : super(key: key);
 
